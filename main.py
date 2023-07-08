@@ -12,12 +12,17 @@ morse_code_dict = {k: v for k, v in zip(let_num, morse_code)}
 
 print("Morse Code Converter.")
 
-convert = "y"
-while convert == "y":
+convert = True
+while convert:
     string = input("\nEnter string: ").upper()
     conversion_lst = [morse_code_dict[item] for item in string if item in let_num]
     conversion = "   ".join(conversion_lst)
     print(f"\nConversion:\n{conversion}")
 
     convert = input("\nEnter y to continue converting or n to stop: ").lower()
+    if convert == "n":
+      convert = False
+    elif convert != "y" or convert != "n":
+       convert = input("\nEnter y to continue converting or n to stop: ").lower()
+    
 
